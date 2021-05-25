@@ -3,7 +3,6 @@
 /* globals sendMessageToHost, getParameterByName, initI18N, $, isElectron */
 'use strict';
 
-
 const locale = getParameterByName('locale');
 const filePath = getParameterByName('file');
 
@@ -23,9 +22,9 @@ const readFile = function(filePath) {
     oReq.send(null);
 };
 
-if (filePath.endsWith('.csv')) {
+if (filePath.toLowerCase().endsWith('.csv')) {
     sendMessageToHost({command: 'loadDefaultTextContent', preview: true});
-} else {
+} else { // TODO check web
     readFile(filePath);
 }
 
