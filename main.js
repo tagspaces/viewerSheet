@@ -33,7 +33,7 @@ const processWb = function (wb) {
     const HTMLOUT = document.getElementById('htmlout');
     HTMLOUT.innerHTML = "";
     wb.SheetNames.forEach(function (sheetName) {
-        const htmlstr = XLSX.utils.sheet_to_html(wb.Sheets[sheetName], {editable: true});
+        const htmlstr = XLSX.utils.sheet_to_html(wb.Sheets[sheetName], {editable: false});
         HTMLOUT.innerHTML += htmlstr;
     });
 };
