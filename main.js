@@ -1,19 +1,33 @@
-
 /* Copyright (c) 2013-present The TagSpaces Authors.
  * Use of this source code is governed by the MIT license which can be found in the LICENSE.txt file. */
 /* globals sendMessageToHost, getParameterByName, initI18N, $, isElectron */
 'use strict';
 
-sendMessageToHost({ command: 'loadDefaultTextContent', preview: true });
 
-// const locale = getParameterByName('locale');
-// const filePath = '/Users/sytolk/Downloads/directoryEntries [tagspaces 20210521_091221].csv'; // getParameterByName('file');
+const locale = getParameterByName('locale');
+const filePath = getParameterByName('file');
 
-const processWb = function(wb) {
+const readFile = function(filePath) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        let data = e.target.result;
+        data = new Uint8Array(data);
+        processWb(XLSX.read(data, {type: 'array'}));
+    };
+    reader.readAsArrayBuffer(filePath);
+};
+
+if (filePath.endsWith('.csv')) {
+    sendMessageToHost({command: 'loadDefaultTextContent', preview: true});
+} else {
+    readFile(filePath);
+}
+
+const processWb = function (wb) {
     const HTMLOUT = document.getElementById('htmlout');
     HTMLOUT.innerHTML = "";
-    wb.SheetNames.forEach(function(sheetName) {
-        const htmlstr = XLSX.utils.sheet_to_html(wb.Sheets[sheetName],{editable:true});
+    wb.SheetNames.forEach(function (sheetName) {
+        const htmlstr = XLSX.utils.sheet_to_html(wb.Sheets[sheetName], {editable: true});
         HTMLOUT.innerHTML += htmlstr;
     });
 };
