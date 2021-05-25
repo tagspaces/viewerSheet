@@ -8,13 +8,19 @@ const locale = getParameterByName('locale');
 const filePath = getParameterByName('file');
 
 const readFile = function(filePath) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        let data = e.target.result;
-        data = new Uint8Array(data);
-        processWb(XLSX.read(data, {type: 'array'}));
+    const oReq = new XMLHttpRequest();
+    oReq.open("GET", filePath, true);
+    oReq.responseType = "arraybuffer";
+
+    oReq.onload = function (oEvent) {
+        const arrayBuffer = oReq.response; // Note: not oReq.responseText
+        if (arrayBuffer) {
+            const byteArray = new Uint8Array(arrayBuffer);
+            processWb(XLSX.read(byteArray, {type: 'array'}));
+        }
     };
-    reader.readAsArrayBuffer(filePath);
+
+    oReq.send(null);
 };
 
 if (filePath.endsWith('.csv')) {
