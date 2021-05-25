@@ -42,6 +42,14 @@ function setContent(content, fileDir) {
     processWb(XLSX.read(content, {type: 'string'}));
 }
 
+function saveFile(type, fn, dl) {
+    const elt = document.getElementById('data-table');
+    const wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
+    return dl ?
+        XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+        XLSX.writeFile(wb, fn || ('test.' + (type || 'xlsx')));
+}
+
 /*const readFile = function(files) {
     const f = files[0];
     const reader = new FileReader();
