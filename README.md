@@ -1,2 +1,2 @@
-# viewerSheet
-TagSpaces viewer for CSV data and Excel like sheets
+# viewerSpreadSheet
+TagSpaces pliugin for viewing CSV and other spreadsheet files
