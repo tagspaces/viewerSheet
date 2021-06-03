@@ -1,2 +1,3 @@
 # viewerSpreadSheet
-TagSpaces viewer for CSV and sheetsheat files
+
+TagSpaces viewer for CSV and spreadsheet files
