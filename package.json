@@ -1,5 +1,5 @@
 {
-  "name": "@tagspaces/xlsx-viewer",
+  "name": "@tagspaces/spreadsheet-viewer",
   "version": "1.0.0",
   "description": "A TagSpaces extension allowing you to open plain text files",
   "homepage": "https://www.tagspaces.org",
