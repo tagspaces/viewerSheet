@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <script type="text/javascript" src="libs/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="sheetjs/xlsx.full.min.js"></script>
     <script
       type="text/javascript"
       src="../legacy-ext/libs/jquery/dist/jquery.min.js"
@@ -79,14 +79,42 @@
             >
               <i class="fa fa-times"></i>
             </button>
-            <h4 class="modal-title" data-i18n="aboutTitle"></h4>
+            <h4 class="modal-title" data-i18n="aboutTitle">About</h4>
           </div>
           <div class="modal-body markdown-content">
-            <br />Please visit the
-            <a href="https://github.com/tagspaces/viewerSpreadSheet"
-              >project page</a
-            >
-            on GitHub for details about this extension.<br /><br />
+            <h3>Purpose</h3>
+            <p>
+              This is an extension for previewing the content of spreadsheet
+              files.
+            </p>
+            <h3>Supported file formats</h3>
+            <ul>
+              <li>CSV</li>
+              <li>ODS</li>
+              <li>XLS</li>
+              <li>XLSX</li>
+            </ul>
+            <h3>Source code</h3>
+            <p>
+              Licensed under MIT license and available on
+              <a href="https://github.com/tagspaces/viewerSpreadSheet"
+                >GitHub</a
+              >
+            </p>
+            <h3>Used open source libraries</h3>
+            <ul>
+              <li>
+                <a href="https://docs.sheetjs.com/">sheetjs</a> - licensed under
+                Apache 2.0
+              </li>
+              <li>
+                <a href="https://jquery.org/">jquery</a> - licensed under MIT
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/">bootstrap</a> - licensed
+                under MIT
+              </li>
+            </ul>
           </div>
           <div class="modal-footer">
             <button
